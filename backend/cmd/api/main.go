@@ -14,7 +14,7 @@ import (
 
 func main() {
 	if err := godotenv.Load(); err != nil {
-		log.Println("Advertencia: No se pudo cargar el archivo .env")
+		log.Println("Warning. .env file cannot be loaded")
 	}
 
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true",
@@ -27,7 +27,7 @@ func main() {
 
 	repo, err := mysqlAdapter.NewRepository(dsn)
 	if err != nil {
-		log.Fatal("FATAL: No se pudo conectar a la base de datos: ", err)
+		log.Fatal("FATAL: It cannot connect to database ", err)
 	}
 
 	underwritingService := underwriting.NewService(repo)
@@ -39,6 +39,6 @@ func main() {
 		port = "8080"
 	}
 
-	log.Printf("Servidor iniciado en http://localhost:%s", port)
+	log.Printf("Server started at http://localhost:%s", port)
 	router.Run(":" + port)
 }
