@@ -1,0 +1,83 @@
+/* src/App.scss */
+
+/* --- GLOBALES Y LAYOUT --- */
+:root {
+  --primary-color: #1f2937;
+  --light-gray: #f9fafb;
+  --text-color: #111827;
+  --text-light: #6b7280;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--light-gray);
+}
+* { box-sizing: border-box; }
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1rem 2rem;
+  min-height: 100vh;
+}
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  h1 { font-size: 2.25rem; margin: 0 0 0.5rem 0; color: var(--text-color); }
+  p { font-size: 1.125rem; color: var(--text-light); max-width: 600px; margin: 0; }
+}
+.floating-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07);
+  width: 100%;
+  max-width: 800px;
+}
+
+/* --- TABS --- */
+.tabs-container {
+  display: flex;
+  background-color: #fff;
+  padding: 4px;
+  border-radius: 99px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  margin-bottom: 2.5rem;
+}
+.tab {
+  display: flex; align-items: center; gap: 8px; padding: 8px 16px; border: none;
+  background-color: transparent; border-radius: 99px; font-weight: 500;
+  cursor: pointer; text-decoration: none; color: var(--text-light); transition: all 0.2s;
+  &.active { background-color: var(--primary-color); color: white; }
+}
+
+/* --- FORMULARIO (EvaluationPage) --- */
+.card-header { text-align: center; margin-bottom: 2rem; }
+.icon-background { display: inline-flex; padding: 12px; background-color: #f3f4f6; border-radius: 50%; color: #3b82f6; margin-bottom: 1rem; }
+.card-header h2 { margin: 0 0 0.5rem 0; }
+.card-header p { color: var(--text-light); margin: 0; }
+.form-section { margin-bottom: 2rem; border-top: 1px solid #e5e7eb; padding-top: 1.5rem; }
+.section-title { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; font-weight: 600; }
+.grid-2-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.full-width { grid-column: 1 / -1; }
+.submit-button { /* Estilos para tu botón de submit */ }
+
+/* --- HISTORIAL (HistoryPage & EvaluationCard) --- */
+.historyContainer { width: 100%; }
+.historyHeader { /* ... tus estilos de history header ... */ }
+.evaluationsList { display: grid; gap: 1.5rem; }
+.evaluationCard { background-color: #fff; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e5e7eb; }
+.cardTop { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1rem; border-bottom: 1px solid #f3f4f6; }
+.userInfo { display: flex; align-items: center; gap: 1rem; }
+.avatar { color: #9ca3af; }
+.userName { font-weight: 600; }
+.date { font-size: 0.875rem; color: #6b7280; }
+.badge { padding: 0.25rem 0.75rem; border-radius: 99px; font-size: 0.75rem; font-weight: 500; color: #fff; }
+.badge-approve { background-color: #16a34a; }
+.badge-refer { background-color: #f59e0b; }
+.badge-decline { background-color: #dc2626; }
+.cardData { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid #f3f4f6; @media (min-width: 640px) { grid-template-columns: repeat(4, 1fr); } }
+.dataPoint { display: flex; flex-direction: column; span { font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem; } strong { font-size: 1.125rem; font-weight: 600; } }
+.cardReasons { padding-top: 1.5rem; font-size: 0.875rem; strong { display: block; margin-bottom: 0.5rem; } ul { margin: 0; padding-left: 1.25rem; color: #4b5563; } }
+.loadingMessage, .errorMessage { text-align: center; padding: 2rem; font-weight: 500; color: #6b7280; }
