@@ -2,7 +2,7 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "5173:80" # Expone el puerto 80 del contenedor al 5173 de tu máquina
+      - "5173:80"
     depends_on:
       - backend
 
