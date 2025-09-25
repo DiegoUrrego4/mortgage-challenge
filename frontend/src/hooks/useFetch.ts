@@ -16,11 +16,8 @@ export const useFetch = <T>(url: string) => {
     const getFetch = async () => {
         setState({ ...state, isLoading: true });
         try {
-            // Modificamos la llamada fetch para incluir las cabeceras
             const resp = await fetch(url, {
                 headers: {
-                    // Esta cabecera le dice al navegador que no use la caché
-                    // y que siempre pida los datos frescos al servidor.
                     'Cache-Control': 'no-cache'
                 }
             });

@@ -14,6 +14,6 @@ type Evaluation struct {
 	Decision      string    `json:"decision"`
 	DTI           float64   `json:"dti"`
 	LTV           float64   `json:"ltv"`
-	Reasons       []string  `json:"reasons"` // Este lo seguiremos guardando como JSON
+	Reasons       []string  `json:"reasons"`
 	CreatedAt     time.Time `json:"created_at"`
 }

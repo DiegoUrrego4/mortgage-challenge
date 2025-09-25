@@ -10,5 +10,5 @@ export interface Evaluation {
     dti:             number;
     ltv:             number;
     reasons:         string[];
-    created_at:       string; // La fecha vendrá como un string ISO
+    created_at:       string;
 }

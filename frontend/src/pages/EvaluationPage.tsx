@@ -6,7 +6,6 @@ import { InputField } from "@/components/InputField.tsx";
 import { submitEvaluation } from '@/services/evaluationApi.ts';
 import "./evaluationPage.scss";
 
-// Interfaz para los campos del formulario
 interface FormFields {
     monthly_income: number;
     monthly_debts: number;
@@ -19,7 +18,6 @@ interface FormFields {
 export const EvaluationPage = () => {
     const navigate = useNavigate();
 
-    // El hook useForm con los campos correctos (snake_case para que coincida con la API)
     const { formState, onInputChange } = useForm<FormFields>({
         occupancy_type: "Primary",
         monthly_income: 0,
@@ -32,7 +30,6 @@ export const EvaluationPage = () => {
     const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-            // Usamos Number() para asegurar que todos los valores sean numéricos
             const apiData = {
                 monthly_income:   Number(formState.monthly_income || 0),
                 monthly_debts:    Number(formState.monthly_debts || 0),
@@ -50,7 +47,6 @@ export const EvaluationPage = () => {
         }
     };
 
-    // La función devuelve el JSX completo del formulario
     return (
         <form onSubmit={handleFormSubmit} className="evaluation-form">
             <div className="card-header">

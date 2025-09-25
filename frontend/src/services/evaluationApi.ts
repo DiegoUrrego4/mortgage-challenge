@@ -13,9 +13,7 @@ export interface ApiResponse {
     reasons: string[];
 }
 
-// Esta es nuestra función para enviar la evaluación
 export const submitEvaluation = async (formData: ApiInput): Promise<ApiResponse> => {
-    // Usamos el proxy de Vite que configuramos.
     const response = await fetch('/api/evaluate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -1,4 +1,3 @@
-/* --- Estilos para la Tarjeta de Evaluación Individual --- */
 .evaluationCard {
   background-color: #fff;
   padding: 1.5rem;
@@ -41,21 +40,19 @@
   font-size: 0.75rem;
   font-weight: 500;
   color: #fff;
-  text-transform: capitalize; // Pone la primera letra en mayúscula
+  text-transform: capitalize;
 }
 
-// Clases de color para el badge
 .badge-approve { background-color: #16a34a; }
 .badge-refer { background-color: #f59e0b; }
 .badge-decline { background-color: #dc2626; }
 
 .cardData {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); // 2 columnas en móvil
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   padding: 1.5rem 0;
 
-  // En pantallas más grandes, pasa a 4 columnas
   @media (min-width: 640px) {
     grid-template-columns: repeat(4, 1fr);
   }

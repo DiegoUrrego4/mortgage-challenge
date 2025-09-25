@@ -9,10 +9,10 @@ import {HistoryPage} from "@/pages/HistoryPage.tsx";
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <App />, // App será nuestro "cascarón" o layout principal
+        element: <App />,
         children: [
             {
-                index: true, // Esta es la ruta por defecto (/)
+                index: true,
                 element: <EvaluationPage />,
             },
             {

@@ -9,29 +9,23 @@ import (
 	"github.com/DiegoUrrego4/backend/internal/ports"
 )
 
-// Service es el plano para nuestro "cerebro".
 type Service struct {
 	repository ports.EvaluationRepository
 }
 
-// NewService es una función que construye un cerebro nuevo y nos lo entrega.
 func NewService(repository ports.EvaluationRepository) *Service {
 	return &Service{
 		repository: repository,
 	}
 }
 
-// Evaluate es el método donde ocurre la magia. Recibe la ficha de Input,
-// piensa y devuelve la ficha de Result.
 func (s *Service) Evaluate(input domain.Input) domain.Result {
-	// --- Cálculos Clave ---
 	dti := input.MonthlyDebts / input.MonthlyIncome
 	ltv := input.LoanAmount / input.PropertyValue
 
 	var reasons []string
 	var decision string
 
-	// --- Lógica de Decisión (El Árbol de Reglas) ---
 	switch {
 	case dti <= 0.43 && ltv <= 0.80 && input.CreditScore >= 680:
 		decision = "Approve"
@@ -64,7 +58,6 @@ func (s *Service) Evaluate(input domain.Input) domain.Result {
 		return domain.Result{}
 	}
 
-	// Devolvemos la ficha de resultado completamente llena.
 	return result
 }
 

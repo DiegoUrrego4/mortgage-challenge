@@ -1,12 +1,10 @@
 import type { Evaluation } from '@/types/evaluation';
 import { FaUserCircle } from 'react-icons/fa';
 
-// Props que el componente recibe
 interface Props {
     evaluation: Evaluation;
 }
 
-// Función de ayuda para formatear la fecha a un formato legible
 const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleString('en-US', {
         year: 'numeric', month: 'long', day: 'numeric',
@@ -14,7 +12,6 @@ const formatDate = (dateString: string) => {
     });
 };
 
-// Función de ayuda para formatear números como moneda USD sin decimales
 const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -25,18 +22,14 @@ const formatCurrency = (amount: number) => {
 };
 
 export const EvaluationCard = ({ evaluation }: Props) => {
-    // Generamos el nombre de la clase para el badge dinámicamente
-    // ej. "badge-approve", "badge-decline"
     const decisionClass = `badge-${evaluation.decision.toLowerCase()}`;
 
     return (
         <div className="evaluationCard">
-            {/* --- Parte Superior: Usuario y Decisión --- */}
             <div className="cardTop">
                 <div className="userInfo">
                     <FaUserCircle size={40} className="avatar" />
                     <div>
-                        {/* El backend no nos da un nombre, usamos el ID por ahora */}
                         <div className="userName">Application #{evaluation.id}</div>
                         <div className="date">{formatDate(evaluation.created_at)}</div>
                     </div>
@@ -46,7 +39,6 @@ export const EvaluationCard = ({ evaluation }: Props) => {
                 </div>
             </div>
 
-            {/* --- Parte Media: Datos Financieros --- */}
             <div className="cardData">
                 <div className="dataPoint">
                     <span className="dataLabel">Loan</span>
@@ -66,7 +58,6 @@ export const EvaluationCard = ({ evaluation }: Props) => {
                 </div>
             </div>
 
-            {/* --- Parte Inferior: Razones --- */}
             <div className="cardReasons">
                 <strong>Decision Reasons:</strong>
                 <ul>
