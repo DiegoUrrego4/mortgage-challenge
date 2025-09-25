@@ -7,7 +7,7 @@ export const HistoryPage = () => {
     const { data: evaluations, isLoading, hasError } = useFetch<Evaluation[]>('/api/evaluations');
 
     if (isLoading) return <p className={"loadingMessage"}>Cargando historial...</p>;
-    if (hasError) return <p className={"errorMessage"}>Error al cargar el historial.</p>;
+    if (hasError) return <p className={"errorMessage"}>Error loading history</p>;
 
     return (
         <div className={"historyContainer"}>
