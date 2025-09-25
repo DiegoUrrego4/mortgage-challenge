@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import { Tabs } from './layouts/Tabs.tsx'; // Importa tus Tabs
-import './App.scss'; // Un archivo principal de estilos
+import { Tabs } from './components/Tabs.tsx';
+import './App.scss';
 
 function App() {
     return (
