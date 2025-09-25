@@ -23,7 +23,7 @@ func TestEvaluate(t *testing.T) {
 		expectedDecision string
 	}{
 		{
-			name: "Caso de Aprobación Perfecto",
+			name: "Perfect approving case",
 			input: domain.Input{
 				MonthlyIncome: 10000,
 				MonthlyDebts:  3000,
@@ -34,7 +34,7 @@ func TestEvaluate(t *testing.T) {
 			expectedDecision: "Approve",
 		},
 		{
-			name: "Caso de Referencia por DTI alto",
+			name: "Reference case for high DTI",
 			input: domain.Input{
 				MonthlyIncome: 10000,
 				MonthlyDebts:  4500,
@@ -45,7 +45,7 @@ func TestEvaluate(t *testing.T) {
 			expectedDecision: "Refer",
 		},
 		{
-			name: "Caso de Referencia por Score bajo",
+			name: "Reference Case for Low Score",
 			input: domain.Input{
 				MonthlyIncome: 10000,
 				MonthlyDebts:  4000,
@@ -56,7 +56,7 @@ func TestEvaluate(t *testing.T) {
 			expectedDecision: "Refer",
 		},
 		{
-			name: "Caso de Rechazo por Score muy bajo",
+			name: "Case of rejection due to very low score",
 			input: domain.Input{
 				MonthlyIncome: 10000,
 				MonthlyDebts:  3000,
@@ -67,7 +67,7 @@ func TestEvaluate(t *testing.T) {
 			expectedDecision: "Decline",
 		},
 		{
-			name: "Caso de Rechazo por LTV muy alto",
+			name: "Case of rejection due to very high LTV",
 			input: domain.Input{
 				MonthlyIncome: 10000,
 				MonthlyDebts:  3000,
@@ -87,7 +87,7 @@ func TestEvaluate(t *testing.T) {
 			result := service.Evaluate(tc.input)
 
 			if result.Decision != tc.expectedDecision {
-				t.Errorf("Para el caso '%s', se esperaba la decisión '%s', pero se obtuvo '%s'",
+				t.Errorf("For the case ‘%s’, the decision ‘%s’ was expected, but ‘%s’ was obtained.",
 					tc.name, tc.expectedDecision, result.Decision)
 			}
 		})
